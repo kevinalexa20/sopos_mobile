@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sopos_mobile/shared/shared.dart';
 
-class ProductPage extends ConsumerWidget {
-  const ProductPage({super.key});
+class ReportPage extends ConsumerWidget {
+  const ReportPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Mengambil themeNotifier dari provider
+    // ngambil themeNotifier dari provider
     final themeNotifier = ref.read(themeNotifierProvider.notifier);
     final themeMode = ref.watch(themeNotifierProvider);
 
@@ -17,9 +17,9 @@ class ProductPage extends ConsumerWidget {
         themeNotifier: themeNotifier,
       ),
       body: const Center(
-        child: Text('Dashboard'),
+        child: Text('More'),
       ),
-      bottomNavigationBar: MyNavBar(selectedIndex: 1),
+      bottomNavigationBar: MyNavBar(selectedIndex: 3),
     );
   }
 }

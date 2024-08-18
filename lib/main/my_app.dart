@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sopos_mobile/routes/app_router.dart';
 import 'package:sopos_mobile/shared/shared.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyApp extends ConsumerStatefulWidget {
   const MyApp({super.key});
@@ -39,26 +40,32 @@ class _MyAppState extends ConsumerState<MyApp> {
     // Mendapatkan textTheme dari font yang sudah didefinisikan
     final textTheme = createTextTheme(context, 'Plus Jakarta Sans', 'Montaga');
 
-    return MaterialApp.router(
-      title: 'SOPOS Mobile',
-      theme: ThemeData(
-        colorScheme: lightColorScheme, // LightMode
-        textTheme: textTheme.apply(
-          bodyColor: lightColorScheme.onSurface,
-          displayColor: lightColorScheme.onSurface,
-        ),
-        useMaterial3: true,
-      ),
-      darkTheme: ThemeData(
-        colorScheme: darkColorScheme, // DarkMode
-        textTheme: textTheme.apply(
-          bodyColor: darkColorScheme.onSurface,
-          displayColor: darkColorScheme.onSurface,
-        ),
-        useMaterial3: true,
-      ),
-      themeMode: themeMode, // Gunakan tema dari provider
-      routerConfig: myRoute,
-    );
+    return ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        builder: (_, context) {
+          return MaterialApp.router(
+            title: 'SOPOS Mobile',
+            theme: ThemeData(
+              colorScheme: lightColorScheme, // LightMode
+              textTheme: textTheme.apply(
+                bodyColor: lightColorScheme.onSurface,
+                displayColor: lightColorScheme.onSurface,
+              ),
+              useMaterial3: true,
+            ),
+            darkTheme: ThemeData(
+              colorScheme: darkColorScheme, // DarkMode
+              textTheme: textTheme.apply(
+                bodyColor: darkColorScheme.onSurface,
+                displayColor: darkColorScheme.onSurface,
+              ),
+              useMaterial3: true,
+            ),
+            themeMode: themeMode, // Gunakan tema dari provider
+            routerConfig: myRoute,
+            debugShowCheckedModeBanner: false,
+          );
+        });
   }
 }

@@ -9,13 +9,13 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
   });
 
   final ThemeMode themeMode;
-  final ThemeNotifier themeNotifier;
+  final ThemeProvider themeNotifier;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       leading: Icon(Icons.dashboard),
-      title: const Text('SoPOS'),
+      title: Text('SoPOS'),
       actions: [
         IconButton(
           icon: Icon(

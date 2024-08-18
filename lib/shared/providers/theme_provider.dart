@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// ThemeNotifier yang akan mengelola tema aplikasi
-class ThemeNotifier extends StateNotifier<ThemeMode> {
-  ThemeNotifier() : super(ThemeMode.system);
+// ThemeProvider yang akan mengelola tema aplikasi
+class ThemeProvider extends StateNotifier<ThemeMode> {
+  ThemeProvider() : super(ThemeMode.system);
 
   // Set tema berdasarkan brightness dari MediaQuery
   void setThemeFromBrightness(Brightness brightness) {
@@ -22,6 +22,6 @@ class ThemeNotifier extends StateNotifier<ThemeMode> {
 
 // Provider untuk themeNotifier
 final themeNotifierProvider =
-    StateNotifierProvider<ThemeNotifier, ThemeMode>((ref) {
-  return ThemeNotifier();
+    StateNotifierProvider<ThemeProvider, ThemeMode>((ref) {
+  return ThemeProvider();
 });

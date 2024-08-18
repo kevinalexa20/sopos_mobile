@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sopos_mobile/shared/providers/theme_provider.dart';
-import 'package:sopos_mobile/shared/widgets/my_appbar.dart';
-import 'package:sopos_mobile/shared/widgets/my_navbar.dart';
+import 'package:sopos_mobile/shared/shared.dart';
 
-class DashboardPage extends ConsumerWidget {
-  const DashboardPage({super.key});
+class MorePage extends ConsumerWidget {
+  const MorePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Mengambil themeNotifier dari provider
+    // ngambil themeNotifier dari provider
     final themeNotifier = ref.read(themeNotifierProvider.notifier);
     final themeMode = ref.watch(themeNotifierProvider);
 
@@ -21,7 +19,7 @@ class DashboardPage extends ConsumerWidget {
       body: const Center(
         child: Text('Dashboard'),
       ),
-      bottomNavigationBar: MyNavBar(selectedIndex: 0),
+      bottomNavigationBar: MyNavBar(selectedIndex: 4),
     );
   }
 }
