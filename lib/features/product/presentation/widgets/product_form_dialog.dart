@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sopos_mobile/shared/domain/models/product/req/product_request.dart';
+import 'package:sopos_mobile/shared/domain/models/product/res/product_response.dart';
 
 class ProductFormDialog extends StatefulWidget {
+  final ProductResponse? initialProduct;
   final void Function(ProductRequest) onSubmit;
 
-  const ProductFormDialog({required this.onSubmit, Key? key}) : super(key: key);
+  const ProductFormDialog(
+      {this.initialProduct, required this.onSubmit, Key? key})
+      : super(key: key);
 
   @override
   _ProductFormDialogState createState() => _ProductFormDialogState();
@@ -13,23 +16,41 @@ class ProductFormDialog extends StatefulWidget {
 
 class _ProductFormDialogState extends State<ProductFormDialog> {
   final _formKey = GlobalKey<FormState>();
-  String name = '';
-  double price = 0;
-  int categoryId = 1; // Default categoryId
-  List<String> variants = [];
-  String optionName = '';
+  late String name;
+  late double price;
+  late int categoryId;
   List<String> optionValues = [];
+
+  @override
+  void initState() {
+    super.initState();
+    // Inisialisasi form dengan produk yang ada, jika ada
+    if (widget.initialProduct != null) {
+      name = widget.initialProduct!.name;
+      price = widget.initialProduct!.price;
+      categoryId = widget.initialProduct!.category.id;
+      optionValues = widget.initialProduct!.itemOptions.isNotEmpty
+          ? widget.initialProduct!.itemOptions[0].options
+          : [];
+    } else {
+      name = '';
+      price = 0;
+      categoryId = 1;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Add New Product'),
+      title: Text(
+          widget.initialProduct == null ? 'Add New Product' : 'Edit Product'),
       content: SingleChildScrollView(
         child: Form(
           key: _formKey,
           child: Column(
             children: [
               TextFormField(
+                initialValue: name,
                 decoration: InputDecoration(labelText: 'Product Name'),
                 onChanged: (value) {
                   setState(() {
@@ -40,6 +61,7 @@ class _ProductFormDialogState extends State<ProductFormDialog> {
                     value!.isEmpty ? 'Please enter product name' : null,
               ),
               TextFormField(
+                initialValue: price.toString(),
                 decoration: InputDecoration(labelText: 'Price'),
                 keyboardType: TextInputType.number,
                 onChanged: (value) {
@@ -51,6 +73,7 @@ class _ProductFormDialogState extends State<ProductFormDialog> {
                     value!.isEmpty ? 'Please enter price' : null,
               ),
               TextFormField(
+                initialValue: categoryId.toString(),
                 decoration: InputDecoration(labelText: 'Category ID'),
                 keyboardType: TextInputType.number,
                 onChanged: (value) {
@@ -61,41 +84,25 @@ class _ProductFormDialogState extends State<ProductFormDialog> {
                 validator: (value) =>
                     value!.isEmpty ? 'Please enter category ID' : null,
               ),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Option Name'),
-                onChanged: (value) {
-                  setState(() {
-                    optionName = value;
-                  });
-                },
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                    labelText: 'Option Values (comma separated)'),
-                onChanged: (value) {
-                  setState(() {
-                    optionValues = value.split(',');
-                  });
-                },
-              ),
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    final newProduct = ProductRequest(
+                    final updatedProduct = ProductRequest(
                       name: name,
                       price: price,
                       categoryId: categoryId,
                       variants: [], // This should be implemented for variants
                       options: ItemOptionRequest(
-                        name: optionName,
+                        name: "Temperature",
                         options: optionValues,
                       ),
                     );
-                    widget.onSubmit(newProduct);
+                    widget.onSubmit(updatedProduct);
                     Navigator.of(context).pop();
                   }
                 },
-                child: Text('Submit'),
+                child:
+                    Text(widget.initialProduct == null ? 'Submit' : 'Update'),
               ),
             ],
           ),

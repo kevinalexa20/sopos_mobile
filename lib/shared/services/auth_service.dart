@@ -12,8 +12,8 @@ class AuthService {
         'password': password,
       });
       return AuthResponse.fromJson(response.data);
-    } on DioError catch (e) {
-      throw Exception('Failed to login: ${e.message}');
+    } on DioException catch (e, stackTrace) {
+      Error.throwWithStackTrace('Failed to login: ${e.message}', stackTrace);
     }
   }
 
@@ -27,17 +27,18 @@ class AuthService {
         'lastName': lastName,
       });
       return AuthResponse.fromJson(response.data);
-    } on DioError catch (e) {
-      throw Exception('Failed to register: ${e.message}');
+    } on DioException catch (e, stackTrace) {
+      Error.throwWithStackTrace('Failed to register: ${e.message}', stackTrace);
     }
   }
 
   Future<void> logout(String token) async {
     try {
-      await _dio.delete('/auth/logout',
+      await _dio.post('/auth/logout',
           options: Options(headers: {'Authorization': 'Bearer $token'}));
-    } on DioError catch (e) {
-      throw Exception('Failed to logout: ${e.message}');
+    } on DioException catch (e, stackTrace) {
+      Error.throwWithStackTrace('Failed to logout: ${e.message}', stackTrace);
     }
   }
+
 }

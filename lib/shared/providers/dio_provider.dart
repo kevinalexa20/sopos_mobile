@@ -9,8 +9,8 @@ final localStorageServiceProvider = Provider<LocalStorageService>((ref) {
 final dioProvider = Provider<Dio>((ref) {
   final dio = Dio(BaseOptions(
     baseUrl: 'http://localhost:3007/api',
-    connectTimeout: Duration(seconds: 15),
-    receiveTimeout: Duration(seconds: 10),
+    connectTimeout: Duration(seconds: 60),
+    receiveTimeout: Duration(seconds: 60),
   ));
 
   final localStorageService = ref.read(localStorageServiceProvider);

@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sopos_mobile/shared/domain/models/product/req/product_request.dart';
 import 'package:sopos_mobile/shared/domain/models/product/res/product_response.dart';
-import 'package:sopos_mobile/shared/services/product_service.dart';
+import 'package:sopos_mobile/shared/shared.dart';
 
 class ProductNotifier extends StateNotifier<AsyncValue<List<ProductResponse>>> {
   final ProductService _productService;
@@ -12,7 +12,6 @@ class ProductNotifier extends StateNotifier<AsyncValue<List<ProductResponse>>> {
 
   Future<void> loadProducts() async {
     try {
-      // state = AsyncValue.loading();
       final products = await _productService.getAllProducts();
       print('Products loaded: $products');
       state = AsyncValue.data(products);

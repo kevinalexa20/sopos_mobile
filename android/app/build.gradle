@@ -58,10 +58,14 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+    buildToolsVersion '34.0.0'
 }
 
 flutter {
     source '../..'
 }
+
+
+ext.kotlin_version = '2.0.0' 
 
 dependencies {}

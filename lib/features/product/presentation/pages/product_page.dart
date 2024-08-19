@@ -32,12 +32,22 @@ class ProductPage extends ConsumerWidget {
                     return ListTile(
                       title: Text(product.name),
                       subtitle: Text('Rp. ${product.price}'),
-                      // trailing: Text(product.category.name),
-                      trailing: IconButton(
-                        onPressed: () {
-                          _confirmDelete(context, ref, product.id);
-                        },
-                        icon: Icon(Icons.delete),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                            icon: Icon(Icons.edit),
+                            onPressed: () {
+                              _showEditDialog(context, ref, product);
+                            },
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.delete),
+                            onPressed: () {
+                              _confirmDelete(context, ref, product.id);
+                            },
+                          ),
+                        ],
                       ),
                       onTap: () => _showProductDetails(context, product),
                     );
@@ -46,7 +56,6 @@ class ProductPage extends ConsumerWidget {
         },
         loading: () => Center(child: CircularProgressIndicator()),
         error: (error, stack) {
-          print('Error in ProductPage: $error');
           return Center(child: Text('Error: $error'));
         },
       ),
@@ -115,6 +124,23 @@ class ProductPage extends ConsumerWidget {
               child: Text('Delete'),
             ),
           ],
+        );
+      },
+    );
+  }
+
+  void _showEditDialog(
+      BuildContext context, WidgetRef ref, ProductResponse product) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return ProductFormDialog(
+          initialProduct: product,
+          onSubmit: (updatedProduct) {
+            ref
+                .read(productProvider.notifier)
+                .updateProduct(product.id, updatedProduct);
+          },
         );
       },
     );

@@ -56,9 +56,11 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
   Future<void> logout() async {
     if (state is AuthenticatedState) {
+      print('check session: ${state is AuthenticatedState}');
       final token = (state as AuthenticatedState).authData.token;
       try {
         await _authService.logout(token);
+        print('Logout successful: $token');
       } catch (e) {
         print('Error during logout: $e');
       }

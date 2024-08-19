@@ -1,8 +1,14 @@
 import 'package:go_router/go_router.dart';
 import 'package:sopos_mobile/features/auth/presentation/pages/register_page.dart';
 import 'package:sopos_mobile/features/features.dart';
+import 'package:sopos_mobile/features/splash/presentation/pages/splashscreen.dart';
 
-final myRoute = GoRouter(initialLocation: '/dashboard', routes: [
+final myRoute = GoRouter(initialLocation: '/splash', routes: [
+  GoRoute(
+    path: '/splash',
+    name: 'splash',
+    builder: (context, state) => Splashscreen(),
+  ),
   GoRoute(
     path: '/dashboard',
     name: 'dashboard',
