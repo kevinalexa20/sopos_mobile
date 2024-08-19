@@ -1,29 +1,32 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'product.dart';
+part of 'product_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
-    _$ProductImpl(
+_$ProductResponseImpl _$$ProductResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ProductResponseImpl(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
-      price: (json['price'] as num).toInt(),
+      price: (json['price'] as num).toDouble(),
       categoryId: (json['categoryId'] as num).toInt(),
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
-      category: Category.fromJson(json['category'] as Map<String, dynamic>),
-      variants: (json['itemVariants'] as List<dynamic>)
-          .map((e) => ItemVariant.fromJson(e as Map<String, dynamic>))
+      category:
+          CategoryResponse.fromJson(json['category'] as Map<String, dynamic>),
+      itemVariants: (json['itemVariants'] as List<dynamic>)
+          .map((e) => ItemVariantResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
-      options: (json['itemOptions'] as List<dynamic>)
-          .map((e) => ItemOption.fromJson(e as Map<String, dynamic>))
+      itemOptions: (json['itemOptions'] as List<dynamic>)
+          .map((e) => ItemOptionResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
+Map<String, dynamic> _$$ProductResponseImplToJson(
+        _$ProductResponseImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -32,31 +35,35 @@ Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt.toIso8601String(),
       'category': instance.category,
-      'itemVariants': instance.variants,
-      'itemOptions': instance.options,
+      'itemVariants': instance.itemVariants,
+      'itemOptions': instance.itemOptions,
     };
 
-_$CategoryImpl _$$CategoryImplFromJson(Map<String, dynamic> json) =>
-    _$CategoryImpl(
+_$CategoryResponseImpl _$$CategoryResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$CategoryResponseImpl(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$$CategoryImplToJson(_$CategoryImpl instance) =>
+Map<String, dynamic> _$$CategoryResponseImplToJson(
+        _$CategoryResponseImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
     };
 
-_$ItemVariantImpl _$$ItemVariantImplFromJson(Map<String, dynamic> json) =>
-    _$ItemVariantImpl(
+_$ItemVariantResponseImpl _$$ItemVariantResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ItemVariantResponseImpl(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
-      price: (json['price'] as num).toInt(),
+      price: (json['price'] as num).toDouble(),
       itemId: (json['itemId'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$ItemVariantImplToJson(_$ItemVariantImpl instance) =>
+Map<String, dynamic> _$$ItemVariantResponseImplToJson(
+        _$ItemVariantResponseImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -64,8 +71,9 @@ Map<String, dynamic> _$$ItemVariantImplToJson(_$ItemVariantImpl instance) =>
       'itemId': instance.itemId,
     };
 
-_$ItemOptionImpl _$$ItemOptionImplFromJson(Map<String, dynamic> json) =>
-    _$ItemOptionImpl(
+_$ItemOptionResponseImpl _$$ItemOptionResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ItemOptionResponseImpl(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
       itemId: (json['itemId'] as num).toInt(),
@@ -73,7 +81,8 @@ _$ItemOptionImpl _$$ItemOptionImplFromJson(Map<String, dynamic> json) =>
           (json['options'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$$ItemOptionImplToJson(_$ItemOptionImpl instance) =>
+Map<String, dynamic> _$$ItemOptionResponseImplToJson(
+        _$ItemOptionResponseImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

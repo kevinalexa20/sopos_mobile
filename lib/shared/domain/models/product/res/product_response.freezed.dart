@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'product.dart';
+part of 'product_response.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,63 +14,65 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-Product _$ProductFromJson(Map<String, dynamic> json) {
-  return _Product.fromJson(json);
+ProductResponse _$ProductResponseFromJson(Map<String, dynamic> json) {
+  return _ProductResponse.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Product {
+mixin _$ProductResponse {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  int get price => throw _privateConstructorUsedError;
+  double get price => throw _privateConstructorUsedError;
   int get categoryId => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
-  Category get category => throw _privateConstructorUsedError;
-  @JsonKey(name: 'itemVariants')
-  List<ItemVariant> get variants => throw _privateConstructorUsedError;
-  @JsonKey(name: 'itemOptions')
-  List<ItemOption> get options => throw _privateConstructorUsedError;
+  CategoryResponse get category => throw _privateConstructorUsedError;
+  List<ItemVariantResponse> get itemVariants =>
+      throw _privateConstructorUsedError;
+  List<ItemOptionResponse> get itemOptions =>
+      throw _privateConstructorUsedError;
 
-  /// Serializes this Product to a JSON map.
+  /// Serializes this ProductResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Product
+  /// Create a copy of ProductResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
+  $ProductResponseCopyWith<ProductResponse> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProductCopyWith<$Res> {
-  factory $ProductCopyWith(Product value, $Res Function(Product) then) =
-      _$ProductCopyWithImpl<$Res, Product>;
+abstract class $ProductResponseCopyWith<$Res> {
+  factory $ProductResponseCopyWith(
+          ProductResponse value, $Res Function(ProductResponse) then) =
+      _$ProductResponseCopyWithImpl<$Res, ProductResponse>;
   @useResult
   $Res call(
       {int id,
       String name,
-      int price,
+      double price,
       int categoryId,
       DateTime createdAt,
       DateTime updatedAt,
-      Category category,
-      @JsonKey(name: 'itemVariants') List<ItemVariant> variants,
-      @JsonKey(name: 'itemOptions') List<ItemOption> options});
+      CategoryResponse category,
+      List<ItemVariantResponse> itemVariants,
+      List<ItemOptionResponse> itemOptions});
 
-  $CategoryCopyWith<$Res> get category;
+  $CategoryResponseCopyWith<$Res> get category;
 }
 
 /// @nodoc
-class _$ProductCopyWithImpl<$Res, $Val extends Product>
-    implements $ProductCopyWith<$Res> {
-  _$ProductCopyWithImpl(this._value, this._then);
+class _$ProductResponseCopyWithImpl<$Res, $Val extends ProductResponse>
+    implements $ProductResponseCopyWith<$Res> {
+  _$ProductResponseCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Product
+  /// Create a copy of ProductResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -82,8 +84,8 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? category = null,
-    Object? variants = null,
-    Object? options = null,
+    Object? itemVariants = null,
+    Object? itemOptions = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -97,7 +99,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
@@ -113,60 +115,61 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as Category,
-      variants: null == variants
-          ? _value.variants
-          : variants // ignore: cast_nullable_to_non_nullable
-              as List<ItemVariant>,
-      options: null == options
-          ? _value.options
-          : options // ignore: cast_nullable_to_non_nullable
-              as List<ItemOption>,
+              as CategoryResponse,
+      itemVariants: null == itemVariants
+          ? _value.itemVariants
+          : itemVariants // ignore: cast_nullable_to_non_nullable
+              as List<ItemVariantResponse>,
+      itemOptions: null == itemOptions
+          ? _value.itemOptions
+          : itemOptions // ignore: cast_nullable_to_non_nullable
+              as List<ItemOptionResponse>,
     ) as $Val);
   }
 
-  /// Create a copy of Product
+  /// Create a copy of ProductResponse
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CategoryCopyWith<$Res> get category {
-    return $CategoryCopyWith<$Res>(_value.category, (value) {
+  $CategoryResponseCopyWith<$Res> get category {
+    return $CategoryResponseCopyWith<$Res>(_value.category, (value) {
       return _then(_value.copyWith(category: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
-  factory _$$ProductImplCopyWith(
-          _$ProductImpl value, $Res Function(_$ProductImpl) then) =
-      __$$ProductImplCopyWithImpl<$Res>;
+abstract class _$$ProductResponseImplCopyWith<$Res>
+    implements $ProductResponseCopyWith<$Res> {
+  factory _$$ProductResponseImplCopyWith(_$ProductResponseImpl value,
+          $Res Function(_$ProductResponseImpl) then) =
+      __$$ProductResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {int id,
       String name,
-      int price,
+      double price,
       int categoryId,
       DateTime createdAt,
       DateTime updatedAt,
-      Category category,
-      @JsonKey(name: 'itemVariants') List<ItemVariant> variants,
-      @JsonKey(name: 'itemOptions') List<ItemOption> options});
+      CategoryResponse category,
+      List<ItemVariantResponse> itemVariants,
+      List<ItemOptionResponse> itemOptions});
 
   @override
-  $CategoryCopyWith<$Res> get category;
+  $CategoryResponseCopyWith<$Res> get category;
 }
 
 /// @nodoc
-class __$$ProductImplCopyWithImpl<$Res>
-    extends _$ProductCopyWithImpl<$Res, _$ProductImpl>
-    implements _$$ProductImplCopyWith<$Res> {
-  __$$ProductImplCopyWithImpl(
-      _$ProductImpl _value, $Res Function(_$ProductImpl) _then)
+class __$$ProductResponseImplCopyWithImpl<$Res>
+    extends _$ProductResponseCopyWithImpl<$Res, _$ProductResponseImpl>
+    implements _$$ProductResponseImplCopyWith<$Res> {
+  __$$ProductResponseImplCopyWithImpl(
+      _$ProductResponseImpl _value, $Res Function(_$ProductResponseImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Product
+  /// Create a copy of ProductResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -178,10 +181,10 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? category = null,
-    Object? variants = null,
-    Object? options = null,
+    Object? itemVariants = null,
+    Object? itemOptions = null,
   }) {
-    return _then(_$ProductImpl(
+    return _then(_$ProductResponseImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -193,7 +196,7 @@ class __$$ProductImplCopyWithImpl<$Res>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
@@ -209,23 +212,23 @@ class __$$ProductImplCopyWithImpl<$Res>
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as Category,
-      variants: null == variants
-          ? _value._variants
-          : variants // ignore: cast_nullable_to_non_nullable
-              as List<ItemVariant>,
-      options: null == options
-          ? _value._options
-          : options // ignore: cast_nullable_to_non_nullable
-              as List<ItemOption>,
+              as CategoryResponse,
+      itemVariants: null == itemVariants
+          ? _value._itemVariants
+          : itemVariants // ignore: cast_nullable_to_non_nullable
+              as List<ItemVariantResponse>,
+      itemOptions: null == itemOptions
+          ? _value._itemOptions
+          : itemOptions // ignore: cast_nullable_to_non_nullable
+              as List<ItemOptionResponse>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ProductImpl implements _Product {
-  _$ProductImpl(
+class _$ProductResponseImpl implements _ProductResponse {
+  _$ProductResponseImpl(
       {required this.id,
       required this.name,
       required this.price,
@@ -233,20 +236,20 @@ class _$ProductImpl implements _Product {
       required this.createdAt,
       required this.updatedAt,
       required this.category,
-      @JsonKey(name: 'itemVariants') required final List<ItemVariant> variants,
-      @JsonKey(name: 'itemOptions') required final List<ItemOption> options})
-      : _variants = variants,
-        _options = options;
+      required final List<ItemVariantResponse> itemVariants,
+      required final List<ItemOptionResponse> itemOptions})
+      : _itemVariants = itemVariants,
+        _itemOptions = itemOptions;
 
-  factory _$ProductImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ProductImplFromJson(json);
+  factory _$ProductResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProductResponseImplFromJson(json);
 
   @override
   final int id;
   @override
   final String name;
   @override
-  final int price;
+  final double price;
   @override
   final int categoryId;
   @override
@@ -254,35 +257,33 @@ class _$ProductImpl implements _Product {
   @override
   final DateTime updatedAt;
   @override
-  final Category category;
-  final List<ItemVariant> _variants;
+  final CategoryResponse category;
+  final List<ItemVariantResponse> _itemVariants;
   @override
-  @JsonKey(name: 'itemVariants')
-  List<ItemVariant> get variants {
-    if (_variants is EqualUnmodifiableListView) return _variants;
+  List<ItemVariantResponse> get itemVariants {
+    if (_itemVariants is EqualUnmodifiableListView) return _itemVariants;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_variants);
+    return EqualUnmodifiableListView(_itemVariants);
   }
 
-  final List<ItemOption> _options;
+  final List<ItemOptionResponse> _itemOptions;
   @override
-  @JsonKey(name: 'itemOptions')
-  List<ItemOption> get options {
-    if (_options is EqualUnmodifiableListView) return _options;
+  List<ItemOptionResponse> get itemOptions {
+    if (_itemOptions is EqualUnmodifiableListView) return _itemOptions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_options);
+    return EqualUnmodifiableListView(_itemOptions);
   }
 
   @override
   String toString() {
-    return 'Product(id: $id, name: $name, price: $price, categoryId: $categoryId, createdAt: $createdAt, updatedAt: $updatedAt, category: $category, variants: $variants, options: $options)';
+    return 'ProductResponse(id: $id, name: $name, price: $price, categoryId: $categoryId, createdAt: $createdAt, updatedAt: $updatedAt, category: $category, itemVariants: $itemVariants, itemOptions: $itemOptions)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProductImpl &&
+            other is _$ProductResponseImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.price, price) || other.price == price) &&
@@ -294,8 +295,10 @@ class _$ProductImpl implements _Product {
                 other.updatedAt == updatedAt) &&
             (identical(other.category, category) ||
                 other.category == category) &&
-            const DeepCollectionEquality().equals(other._variants, _variants) &&
-            const DeepCollectionEquality().equals(other._options, _options));
+            const DeepCollectionEquality()
+                .equals(other._itemVariants, _itemVariants) &&
+            const DeepCollectionEquality()
+                .equals(other._itemOptions, _itemOptions));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -309,46 +312,48 @@ class _$ProductImpl implements _Product {
       createdAt,
       updatedAt,
       category,
-      const DeepCollectionEquality().hash(_variants),
-      const DeepCollectionEquality().hash(_options));
+      const DeepCollectionEquality().hash(_itemVariants),
+      const DeepCollectionEquality().hash(_itemOptions));
 
-  /// Create a copy of Product
+  /// Create a copy of ProductResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProductImplCopyWith<_$ProductImpl> get copyWith =>
-      __$$ProductImplCopyWithImpl<_$ProductImpl>(this, _$identity);
+  _$$ProductResponseImplCopyWith<_$ProductResponseImpl> get copyWith =>
+      __$$ProductResponseImplCopyWithImpl<_$ProductResponseImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ProductImplToJson(
+    return _$$ProductResponseImplToJson(
       this,
     );
   }
 }
 
-abstract class _Product implements Product {
-  factory _Product(
-      {required final int id,
-      required final String name,
-      required final int price,
-      required final int categoryId,
-      required final DateTime createdAt,
-      required final DateTime updatedAt,
-      required final Category category,
-      @JsonKey(name: 'itemVariants') required final List<ItemVariant> variants,
-      @JsonKey(name: 'itemOptions')
-      required final List<ItemOption> options}) = _$ProductImpl;
+abstract class _ProductResponse implements ProductResponse {
+  factory _ProductResponse(
+          {required final int id,
+          required final String name,
+          required final double price,
+          required final int categoryId,
+          required final DateTime createdAt,
+          required final DateTime updatedAt,
+          required final CategoryResponse category,
+          required final List<ItemVariantResponse> itemVariants,
+          required final List<ItemOptionResponse> itemOptions}) =
+      _$ProductResponseImpl;
 
-  factory _Product.fromJson(Map<String, dynamic> json) = _$ProductImpl.fromJson;
+  factory _ProductResponse.fromJson(Map<String, dynamic> json) =
+      _$ProductResponseImpl.fromJson;
 
   @override
   int get id;
   @override
   String get name;
   @override
-  int get price;
+  double get price;
   @override
   int get categoryId;
   @override
@@ -356,60 +361,59 @@ abstract class _Product implements Product {
   @override
   DateTime get updatedAt;
   @override
-  Category get category;
+  CategoryResponse get category;
   @override
-  @JsonKey(name: 'itemVariants')
-  List<ItemVariant> get variants;
+  List<ItemVariantResponse> get itemVariants;
   @override
-  @JsonKey(name: 'itemOptions')
-  List<ItemOption> get options;
+  List<ItemOptionResponse> get itemOptions;
 
-  /// Create a copy of Product
+  /// Create a copy of ProductResponse
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ProductImplCopyWith<_$ProductImpl> get copyWith =>
+  _$$ProductResponseImplCopyWith<_$ProductResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Category _$CategoryFromJson(Map<String, dynamic> json) {
-  return _Category.fromJson(json);
+CategoryResponse _$CategoryResponseFromJson(Map<String, dynamic> json) {
+  return _CategoryResponse.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Category {
+mixin _$CategoryResponse {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
-  /// Serializes this Category to a JSON map.
+  /// Serializes this CategoryResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Category
+  /// Create a copy of CategoryResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CategoryCopyWith<Category> get copyWith =>
+  $CategoryResponseCopyWith<CategoryResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CategoryCopyWith<$Res> {
-  factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
-      _$CategoryCopyWithImpl<$Res, Category>;
+abstract class $CategoryResponseCopyWith<$Res> {
+  factory $CategoryResponseCopyWith(
+          CategoryResponse value, $Res Function(CategoryResponse) then) =
+      _$CategoryResponseCopyWithImpl<$Res, CategoryResponse>;
   @useResult
   $Res call({int id, String name});
 }
 
 /// @nodoc
-class _$CategoryCopyWithImpl<$Res, $Val extends Category>
-    implements $CategoryCopyWith<$Res> {
-  _$CategoryCopyWithImpl(this._value, this._then);
+class _$CategoryResponseCopyWithImpl<$Res, $Val extends CategoryResponse>
+    implements $CategoryResponseCopyWith<$Res> {
+  _$CategoryResponseCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Category
+  /// Create a copy of CategoryResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -431,25 +435,25 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
 }
 
 /// @nodoc
-abstract class _$$CategoryImplCopyWith<$Res>
-    implements $CategoryCopyWith<$Res> {
-  factory _$$CategoryImplCopyWith(
-          _$CategoryImpl value, $Res Function(_$CategoryImpl) then) =
-      __$$CategoryImplCopyWithImpl<$Res>;
+abstract class _$$CategoryResponseImplCopyWith<$Res>
+    implements $CategoryResponseCopyWith<$Res> {
+  factory _$$CategoryResponseImplCopyWith(_$CategoryResponseImpl value,
+          $Res Function(_$CategoryResponseImpl) then) =
+      __$$CategoryResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int id, String name});
 }
 
 /// @nodoc
-class __$$CategoryImplCopyWithImpl<$Res>
-    extends _$CategoryCopyWithImpl<$Res, _$CategoryImpl>
-    implements _$$CategoryImplCopyWith<$Res> {
-  __$$CategoryImplCopyWithImpl(
-      _$CategoryImpl _value, $Res Function(_$CategoryImpl) _then)
+class __$$CategoryResponseImplCopyWithImpl<$Res>
+    extends _$CategoryResponseCopyWithImpl<$Res, _$CategoryResponseImpl>
+    implements _$$CategoryResponseImplCopyWith<$Res> {
+  __$$CategoryResponseImplCopyWithImpl(_$CategoryResponseImpl _value,
+      $Res Function(_$CategoryResponseImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Category
+  /// Create a copy of CategoryResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -457,7 +461,7 @@ class __$$CategoryImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
   }) {
-    return _then(_$CategoryImpl(
+    return _then(_$CategoryResponseImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -472,11 +476,11 @@ class __$$CategoryImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CategoryImpl implements _Category {
-  _$CategoryImpl({required this.id, required this.name});
+class _$CategoryResponseImpl implements _CategoryResponse {
+  _$CategoryResponseImpl({required this.id, required this.name});
 
-  factory _$CategoryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CategoryImplFromJson(json);
+  factory _$CategoryResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CategoryResponseImplFromJson(json);
 
   @override
   final int id;
@@ -485,14 +489,14 @@ class _$CategoryImpl implements _Category {
 
   @override
   String toString() {
-    return 'Category(id: $id, name: $name)';
+    return 'CategoryResponse(id: $id, name: $name)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CategoryImpl &&
+            other is _$CategoryResponseImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name));
   }
@@ -501,83 +505,85 @@ class _$CategoryImpl implements _Category {
   @override
   int get hashCode => Object.hash(runtimeType, id, name);
 
-  /// Create a copy of Category
+  /// Create a copy of CategoryResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CategoryImplCopyWith<_$CategoryImpl> get copyWith =>
-      __$$CategoryImplCopyWithImpl<_$CategoryImpl>(this, _$identity);
+  _$$CategoryResponseImplCopyWith<_$CategoryResponseImpl> get copyWith =>
+      __$$CategoryResponseImplCopyWithImpl<_$CategoryResponseImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CategoryImplToJson(
+    return _$$CategoryResponseImplToJson(
       this,
     );
   }
 }
 
-abstract class _Category implements Category {
-  factory _Category({required final int id, required final String name}) =
-      _$CategoryImpl;
+abstract class _CategoryResponse implements CategoryResponse {
+  factory _CategoryResponse(
+      {required final int id,
+      required final String name}) = _$CategoryResponseImpl;
 
-  factory _Category.fromJson(Map<String, dynamic> json) =
-      _$CategoryImpl.fromJson;
+  factory _CategoryResponse.fromJson(Map<String, dynamic> json) =
+      _$CategoryResponseImpl.fromJson;
 
   @override
   int get id;
   @override
   String get name;
 
-  /// Create a copy of Category
+  /// Create a copy of CategoryResponse
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CategoryImplCopyWith<_$CategoryImpl> get copyWith =>
+  _$$CategoryResponseImplCopyWith<_$CategoryResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-ItemVariant _$ItemVariantFromJson(Map<String, dynamic> json) {
-  return _ItemVariant.fromJson(json);
+ItemVariantResponse _$ItemVariantResponseFromJson(Map<String, dynamic> json) {
+  return _ItemVariantResponse.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ItemVariant {
+mixin _$ItemVariantResponse {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  int get price => throw _privateConstructorUsedError;
+  double get price => throw _privateConstructorUsedError;
   int get itemId => throw _privateConstructorUsedError;
 
-  /// Serializes this ItemVariant to a JSON map.
+  /// Serializes this ItemVariantResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of ItemVariant
+  /// Create a copy of ItemVariantResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ItemVariantCopyWith<ItemVariant> get copyWith =>
+  $ItemVariantResponseCopyWith<ItemVariantResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ItemVariantCopyWith<$Res> {
-  factory $ItemVariantCopyWith(
-          ItemVariant value, $Res Function(ItemVariant) then) =
-      _$ItemVariantCopyWithImpl<$Res, ItemVariant>;
+abstract class $ItemVariantResponseCopyWith<$Res> {
+  factory $ItemVariantResponseCopyWith(
+          ItemVariantResponse value, $Res Function(ItemVariantResponse) then) =
+      _$ItemVariantResponseCopyWithImpl<$Res, ItemVariantResponse>;
   @useResult
-  $Res call({int id, String name, int price, int itemId});
+  $Res call({int id, String name, double price, int itemId});
 }
 
 /// @nodoc
-class _$ItemVariantCopyWithImpl<$Res, $Val extends ItemVariant>
-    implements $ItemVariantCopyWith<$Res> {
-  _$ItemVariantCopyWithImpl(this._value, this._then);
+class _$ItemVariantResponseCopyWithImpl<$Res, $Val extends ItemVariantResponse>
+    implements $ItemVariantResponseCopyWith<$Res> {
+  _$ItemVariantResponseCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ItemVariant
+  /// Create a copy of ItemVariantResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -599,7 +605,7 @@ class _$ItemVariantCopyWithImpl<$Res, $Val extends ItemVariant>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       itemId: null == itemId
           ? _value.itemId
           : itemId // ignore: cast_nullable_to_non_nullable
@@ -609,25 +615,25 @@ class _$ItemVariantCopyWithImpl<$Res, $Val extends ItemVariant>
 }
 
 /// @nodoc
-abstract class _$$ItemVariantImplCopyWith<$Res>
-    implements $ItemVariantCopyWith<$Res> {
-  factory _$$ItemVariantImplCopyWith(
-          _$ItemVariantImpl value, $Res Function(_$ItemVariantImpl) then) =
-      __$$ItemVariantImplCopyWithImpl<$Res>;
+abstract class _$$ItemVariantResponseImplCopyWith<$Res>
+    implements $ItemVariantResponseCopyWith<$Res> {
+  factory _$$ItemVariantResponseImplCopyWith(_$ItemVariantResponseImpl value,
+          $Res Function(_$ItemVariantResponseImpl) then) =
+      __$$ItemVariantResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, int price, int itemId});
+  $Res call({int id, String name, double price, int itemId});
 }
 
 /// @nodoc
-class __$$ItemVariantImplCopyWithImpl<$Res>
-    extends _$ItemVariantCopyWithImpl<$Res, _$ItemVariantImpl>
-    implements _$$ItemVariantImplCopyWith<$Res> {
-  __$$ItemVariantImplCopyWithImpl(
-      _$ItemVariantImpl _value, $Res Function(_$ItemVariantImpl) _then)
+class __$$ItemVariantResponseImplCopyWithImpl<$Res>
+    extends _$ItemVariantResponseCopyWithImpl<$Res, _$ItemVariantResponseImpl>
+    implements _$$ItemVariantResponseImplCopyWith<$Res> {
+  __$$ItemVariantResponseImplCopyWithImpl(_$ItemVariantResponseImpl _value,
+      $Res Function(_$ItemVariantResponseImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ItemVariant
+  /// Create a copy of ItemVariantResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -637,7 +643,7 @@ class __$$ItemVariantImplCopyWithImpl<$Res>
     Object? price = null,
     Object? itemId = null,
   }) {
-    return _then(_$ItemVariantImpl(
+    return _then(_$ItemVariantResponseImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -649,7 +655,7 @@ class __$$ItemVariantImplCopyWithImpl<$Res>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       itemId: null == itemId
           ? _value.itemId
           : itemId // ignore: cast_nullable_to_non_nullable
@@ -660,35 +666,35 @@ class __$$ItemVariantImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ItemVariantImpl implements _ItemVariant {
-  _$ItemVariantImpl(
+class _$ItemVariantResponseImpl implements _ItemVariantResponse {
+  _$ItemVariantResponseImpl(
       {required this.id,
       required this.name,
       required this.price,
       required this.itemId});
 
-  factory _$ItemVariantImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ItemVariantImplFromJson(json);
+  factory _$ItemVariantResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ItemVariantResponseImplFromJson(json);
 
   @override
   final int id;
   @override
   final String name;
   @override
-  final int price;
+  final double price;
   @override
   final int itemId;
 
   @override
   String toString() {
-    return 'ItemVariant(id: $id, name: $name, price: $price, itemId: $itemId)';
+    return 'ItemVariantResponse(id: $id, name: $name, price: $price, itemId: $itemId)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ItemVariantImpl &&
+            other is _$ItemVariantResponseImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.price, price) || other.price == price) &&
@@ -699,90 +705,91 @@ class _$ItemVariantImpl implements _ItemVariant {
   @override
   int get hashCode => Object.hash(runtimeType, id, name, price, itemId);
 
-  /// Create a copy of ItemVariant
+  /// Create a copy of ItemVariantResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ItemVariantImplCopyWith<_$ItemVariantImpl> get copyWith =>
-      __$$ItemVariantImplCopyWithImpl<_$ItemVariantImpl>(this, _$identity);
+  _$$ItemVariantResponseImplCopyWith<_$ItemVariantResponseImpl> get copyWith =>
+      __$$ItemVariantResponseImplCopyWithImpl<_$ItemVariantResponseImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ItemVariantImplToJson(
+    return _$$ItemVariantResponseImplToJson(
       this,
     );
   }
 }
 
-abstract class _ItemVariant implements ItemVariant {
-  factory _ItemVariant(
+abstract class _ItemVariantResponse implements ItemVariantResponse {
+  factory _ItemVariantResponse(
       {required final int id,
       required final String name,
-      required final int price,
-      required final int itemId}) = _$ItemVariantImpl;
+      required final double price,
+      required final int itemId}) = _$ItemVariantResponseImpl;
 
-  factory _ItemVariant.fromJson(Map<String, dynamic> json) =
-      _$ItemVariantImpl.fromJson;
+  factory _ItemVariantResponse.fromJson(Map<String, dynamic> json) =
+      _$ItemVariantResponseImpl.fromJson;
 
   @override
   int get id;
   @override
   String get name;
   @override
-  int get price;
+  double get price;
   @override
   int get itemId;
 
-  /// Create a copy of ItemVariant
+  /// Create a copy of ItemVariantResponse
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ItemVariantImplCopyWith<_$ItemVariantImpl> get copyWith =>
+  _$$ItemVariantResponseImplCopyWith<_$ItemVariantResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-ItemOption _$ItemOptionFromJson(Map<String, dynamic> json) {
-  return _ItemOption.fromJson(json);
+ItemOptionResponse _$ItemOptionResponseFromJson(Map<String, dynamic> json) {
+  return _ItemOptionResponse.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ItemOption {
+mixin _$ItemOptionResponse {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get itemId => throw _privateConstructorUsedError;
   List<String> get options => throw _privateConstructorUsedError;
 
-  /// Serializes this ItemOption to a JSON map.
+  /// Serializes this ItemOptionResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of ItemOption
+  /// Create a copy of ItemOptionResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $ItemOptionCopyWith<ItemOption> get copyWith =>
+  $ItemOptionResponseCopyWith<ItemOptionResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ItemOptionCopyWith<$Res> {
-  factory $ItemOptionCopyWith(
-          ItemOption value, $Res Function(ItemOption) then) =
-      _$ItemOptionCopyWithImpl<$Res, ItemOption>;
+abstract class $ItemOptionResponseCopyWith<$Res> {
+  factory $ItemOptionResponseCopyWith(
+          ItemOptionResponse value, $Res Function(ItemOptionResponse) then) =
+      _$ItemOptionResponseCopyWithImpl<$Res, ItemOptionResponse>;
   @useResult
   $Res call({int id, String name, int itemId, List<String> options});
 }
 
 /// @nodoc
-class _$ItemOptionCopyWithImpl<$Res, $Val extends ItemOption>
-    implements $ItemOptionCopyWith<$Res> {
-  _$ItemOptionCopyWithImpl(this._value, this._then);
+class _$ItemOptionResponseCopyWithImpl<$Res, $Val extends ItemOptionResponse>
+    implements $ItemOptionResponseCopyWith<$Res> {
+  _$ItemOptionResponseCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ItemOption
+  /// Create a copy of ItemOptionResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -814,25 +821,25 @@ class _$ItemOptionCopyWithImpl<$Res, $Val extends ItemOption>
 }
 
 /// @nodoc
-abstract class _$$ItemOptionImplCopyWith<$Res>
-    implements $ItemOptionCopyWith<$Res> {
-  factory _$$ItemOptionImplCopyWith(
-          _$ItemOptionImpl value, $Res Function(_$ItemOptionImpl) then) =
-      __$$ItemOptionImplCopyWithImpl<$Res>;
+abstract class _$$ItemOptionResponseImplCopyWith<$Res>
+    implements $ItemOptionResponseCopyWith<$Res> {
+  factory _$$ItemOptionResponseImplCopyWith(_$ItemOptionResponseImpl value,
+          $Res Function(_$ItemOptionResponseImpl) then) =
+      __$$ItemOptionResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int id, String name, int itemId, List<String> options});
 }
 
 /// @nodoc
-class __$$ItemOptionImplCopyWithImpl<$Res>
-    extends _$ItemOptionCopyWithImpl<$Res, _$ItemOptionImpl>
-    implements _$$ItemOptionImplCopyWith<$Res> {
-  __$$ItemOptionImplCopyWithImpl(
-      _$ItemOptionImpl _value, $Res Function(_$ItemOptionImpl) _then)
+class __$$ItemOptionResponseImplCopyWithImpl<$Res>
+    extends _$ItemOptionResponseCopyWithImpl<$Res, _$ItemOptionResponseImpl>
+    implements _$$ItemOptionResponseImplCopyWith<$Res> {
+  __$$ItemOptionResponseImplCopyWithImpl(_$ItemOptionResponseImpl _value,
+      $Res Function(_$ItemOptionResponseImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ItemOption
+  /// Create a copy of ItemOptionResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -842,7 +849,7 @@ class __$$ItemOptionImplCopyWithImpl<$Res>
     Object? itemId = null,
     Object? options = null,
   }) {
-    return _then(_$ItemOptionImpl(
+    return _then(_$ItemOptionResponseImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -865,16 +872,16 @@ class __$$ItemOptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ItemOptionImpl implements _ItemOption {
-  _$ItemOptionImpl(
+class _$ItemOptionResponseImpl implements _ItemOptionResponse {
+  _$ItemOptionResponseImpl(
       {required this.id,
       required this.name,
       required this.itemId,
       required final List<String> options})
       : _options = options;
 
-  factory _$ItemOptionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ItemOptionImplFromJson(json);
+  factory _$ItemOptionResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ItemOptionResponseImplFromJson(json);
 
   @override
   final int id;
@@ -892,14 +899,14 @@ class _$ItemOptionImpl implements _ItemOption {
 
   @override
   String toString() {
-    return 'ItemOption(id: $id, name: $name, itemId: $itemId, options: $options)';
+    return 'ItemOptionResponse(id: $id, name: $name, itemId: $itemId, options: $options)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ItemOptionImpl &&
+            other is _$ItemOptionResponseImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.itemId, itemId) || other.itemId == itemId) &&
@@ -911,31 +918,32 @@ class _$ItemOptionImpl implements _ItemOption {
   int get hashCode => Object.hash(runtimeType, id, name, itemId,
       const DeepCollectionEquality().hash(_options));
 
-  /// Create a copy of ItemOption
+  /// Create a copy of ItemOptionResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ItemOptionImplCopyWith<_$ItemOptionImpl> get copyWith =>
-      __$$ItemOptionImplCopyWithImpl<_$ItemOptionImpl>(this, _$identity);
+  _$$ItemOptionResponseImplCopyWith<_$ItemOptionResponseImpl> get copyWith =>
+      __$$ItemOptionResponseImplCopyWithImpl<_$ItemOptionResponseImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ItemOptionImplToJson(
+    return _$$ItemOptionResponseImplToJson(
       this,
     );
   }
 }
 
-abstract class _ItemOption implements ItemOption {
-  factory _ItemOption(
+abstract class _ItemOptionResponse implements ItemOptionResponse {
+  factory _ItemOptionResponse(
       {required final int id,
       required final String name,
       required final int itemId,
-      required final List<String> options}) = _$ItemOptionImpl;
+      required final List<String> options}) = _$ItemOptionResponseImpl;
 
-  factory _ItemOption.fromJson(Map<String, dynamic> json) =
-      _$ItemOptionImpl.fromJson;
+  factory _ItemOptionResponse.fromJson(Map<String, dynamic> json) =
+      _$ItemOptionResponseImpl.fromJson;
 
   @override
   int get id;
@@ -946,10 +954,10 @@ abstract class _ItemOption implements ItemOption {
   @override
   List<String> get options;
 
-  /// Create a copy of ItemOption
+  /// Create a copy of ItemOptionResponse
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ItemOptionImplCopyWith<_$ItemOptionImpl> get copyWith =>
+  _$$ItemOptionResponseImplCopyWith<_$ItemOptionResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

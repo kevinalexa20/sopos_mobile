@@ -1,89 +1,66 @@
+import 'dart:math';
+
 import 'package:dio/dio.dart';
-import 'package:sopos_mobile/shared/domain/models/product/product.dart';
+import 'package:sopos_mobile/shared/domain/models/product/req/product_request.dart';
+import 'package:sopos_mobile/shared/domain/models/product/res/product_response.dart';
 
 class ProductService {
   final Dio _dio;
 
   ProductService(this._dio);
 
-  // Create a new product
-  Future<Product> createProduct(Product product) async {
-    try {
-      final response = await _dio.post('/items', data: product.toJson());
-      if (response.statusCode == 201) {
-        return Product.fromJson(response.data['data']);
-      } else {
-        throw Exception('Failed to create product: ${response.statusCode}');
-      }
-    } on DioError catch (e) {
-      throw Exception('Failed to create product: ${e.message}');
-    }
-  }
-
-// Get all products
-  Future<List<Product>> getAllProducts() async {
+  //get all products
+  Future<List<ProductResponse>> getAllProducts() async {
     try {
       final response = await _dio.get('/items');
-      print('Response data: ${response.data}');
+      final responseData =
+          response.data as Map<String, dynamic>; //response data into a map
 
-      if (response.data is Map<String, dynamic>) {
-        final responseData = response.data as Map<String, dynamic>;
-        if (responseData['success'] == true &&
-            responseData.containsKey('data') &&
-            responseData['data'] is List) {
-          return (responseData['data'] as List)
-              .map((item) => Product.fromJson(item as Map<String, dynamic>))
-              .toList();
-        }
-      }
-
-      throw Exception('Unexpected response format');
-    } on DioError catch (e) {
-      print('DioError in getAllProducts: ${e.message}');
-      throw Exception('Failed to get products: ${e.message}');
-    } catch (e) {
-      print('Unexpected error in getAllProducts: $e');
-      throw Exception('An unexpected error occurred: $e');
-    }
-  }
-
-  // Get a single product by ID
-  Future<Product> getProductById(int id) async {
-    try {
-      final response = await _dio.get('/items/$id');
-      if (response.statusCode == 200) {
-        return Product.fromJson(response.data['data']);
+      // return (response.data as List)
+      //     .map((item) => ProductResponse.fromJson(item))
+      //     .toList();
+      if (responseData['success'] == true && responseData['data'] is List) {
+        return (responseData['data'] as List)
+            .map((item) =>
+                ProductResponse.fromJson(item as Map<String, dynamic>))
+            .toList();
       } else {
-        throw Exception('Failed to get product: ${response.statusCode}');
+        throw Exception('Unexpected response format');
       }
-    } on DioError catch (e) {
-      throw Exception('Failed to get product: ${e.message}');
+    } on DioException catch (e, stackTrace) {
+      // throw Exception('Failed to load products: ${e.message}');
+      Error.throwWithStackTrace(e, stackTrace);
+      // return [];
     }
   }
 
-  // Update an existing product
-  Future<Product> updateProduct(int id, Product product) async {
+  //create new product
+  Future<ProductResponse> createProduct(ProductRequest product) async {
+    try {
+      final response = await _dio.post('/items', data: product.toJson());
+      return ProductResponse.fromJson(response.data['data']);
+    } on DioException catch (e, stackTrace) {
+      Error.throwWithStackTrace(e, stackTrace);
+    }
+  }
+
+  //update product
+  Future<ProductResponse> updateProduct(int id, ProductRequest product) async {
     try {
       final response = await _dio.put('/items/$id', data: product.toJson());
-      if (response.statusCode == 200) {
-        return Product.fromJson(response.data['data']);
-      } else {
-        throw Exception('Failed to update product: ${response.statusCode}');
-      }
-    } on DioError catch (e) {
-      throw Exception('Failed to update product: ${e.message}');
+      return ProductResponse.fromJson(response.data['data']);
+    } on DioException catch (e, stackTrace) {
+      Error.throwWithStackTrace(e, stackTrace);
     }
   }
 
-  // Delete a product
+  //delete product
   Future<void> deleteProduct(int id) async {
     try {
-      final response = await _dio.delete('/items/$id');
-      if (response.statusCode != 200 && response.statusCode != 204) {
-        throw Exception('Failed to delete product: ${response.statusCode}');
-      }
-    } on DioError catch (e) {
-      throw Exception('Failed to delete product: ${e.message}');
+      await _dio.delete('/items/$id');
+      print('Product id: $id deleted');
+    } on DioException catch (e, stackTrace) {
+      Error.throwWithStackTrace(e, stackTrace);
     }
   }
 }
