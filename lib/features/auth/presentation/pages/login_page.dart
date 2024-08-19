@@ -14,8 +14,17 @@ class LoginPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final authState = ref.watch(authStateProvider);
 
+    final themeNotifier = ref.read(themeNotifierProvider.notifier);
+    final themeMode = ref.watch(themeNotifierProvider);
+
     return Scaffold(
-      appBar: AppBar(title: Text('Login')),
+      appBar: MyAppbar(
+        leading: BackButton(
+          onPressed: () => context.go('/dashboard'),
+        ),
+        themeMode: themeMode,
+        themeNotifier: themeNotifier,
+      ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(

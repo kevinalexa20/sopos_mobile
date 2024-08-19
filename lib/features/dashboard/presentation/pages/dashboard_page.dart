@@ -52,19 +52,19 @@ class DashboardPage extends ConsumerWidget {
                     onTap: () => context.go("/cashier"),
                   ),
                   CardItemDashboard(
-                    icon: Icons.point_of_sale_rounded,
+                    icon: Icons.store_mall_directory_rounded,
                     title: "Produk",
                     color: Theme.of(context).colorScheme.surface,
                     onTap: () => context.go("/product"),
                   ),
                   CardItemDashboard(
-                    icon: Icons.point_of_sale_rounded,
+                    icon: Icons.playlist_add_check_circle,
                     title: "Report",
                     color: Theme.of(context).colorScheme.surface,
                     onTap: () => context.go("/report"),
                   ),
                   CardItemDashboard(
-                    icon: Icons.point_of_sale_rounded,
+                    icon: Icons.settings_rounded,
                     title: "Pengaturan",
                     color: Theme.of(context).colorScheme.surface,
                     onTap: () => context.go("/more"),

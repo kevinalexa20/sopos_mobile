@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sopos_mobile/features/auth/presentation/providers/auth_providers.dart';
 import 'package:sopos_mobile/features/auth/presentation/providers/states/auth_state.dart';
+import 'package:sopos_mobile/shared/shared.dart';
 
 class RegisterPage extends ConsumerWidget {
   final TextEditingController _emailController = TextEditingController();
@@ -14,13 +15,23 @@ class RegisterPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final authState = ref.watch(authStateProvider);
 
+    final themeNotifier = ref.read(themeNotifierProvider.notifier);
+    final themeMode = ref.watch(themeNotifierProvider);
+
     return Scaffold(
-      appBar: AppBar(title: Text('Register')),
+      appBar: MyAppbar(
+        leading: BackButton(
+          onPressed: () => context.go('/login'),
+        ),
+        themeMode: themeMode,
+        themeNotifier: themeNotifier,
+      ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text('Register', style: TextStyle(fontSize: 24)),
             TextField(
               controller: _emailController,
               decoration: InputDecoration(labelText: 'Email'),

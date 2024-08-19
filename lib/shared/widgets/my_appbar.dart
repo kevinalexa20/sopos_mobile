@@ -6,15 +6,17 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     required this.themeMode,
     required this.themeNotifier,
+    this.leading,
   });
 
   final ThemeMode themeMode;
   final ThemeProvider themeNotifier;
+  final Widget? leading;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: Icon(Icons.dashboard),
+      leading: leading ?? Icon(Icons.dashboard),
       title: Text('SoPOS'),
       actions: [
         IconButton(
