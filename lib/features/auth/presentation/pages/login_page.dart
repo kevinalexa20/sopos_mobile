@@ -34,13 +34,13 @@ class LoginPage extends ConsumerWidget {
               controller: _emailController,
               decoration: InputDecoration(labelText: 'Email'),
             ),
-            SizedBox(height: 16),
+            HeightSpacer(height: 16.h),
             TextField(
               controller: _passwordController,
               decoration: InputDecoration(labelText: 'Password'),
               obscureText: true,
             ),
-            SizedBox(height: 24),
+            HeightSpacer(height: 24.h),
             ElevatedButton(
               onPressed: () {
                 ref.read(authStateProvider.notifier).login(

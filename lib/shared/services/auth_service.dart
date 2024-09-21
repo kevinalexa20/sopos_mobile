@@ -2,7 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:sopos_mobile/shared/domain/models/auth_response.dart';
 import 'dio_client.dart';
 
+//Main Logic for handling authentication
 class AuthService {
+  //using dio client instance to make requests
   final Dio _dio = DioClient.instance;
 
   Future<AuthResponse> login(String email, String password) async {

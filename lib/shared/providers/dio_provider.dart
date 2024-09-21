@@ -15,9 +15,11 @@ final dioProvider = Provider<Dio>((ref) {
 
   final localStorageService = ref.read(localStorageServiceProvider);
 
+  //addin interceptor to add token to every request
   dio.interceptors.add(
     InterceptorsWrapper(
       onRequest: (options, handler) async {
+        //get token from local storage
         final authData = await localStorageService.getAuthData();
         if (authData != null && authData.token != null) {
           print('Token found: ${authData.token}');

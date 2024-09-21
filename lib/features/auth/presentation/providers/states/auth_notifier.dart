@@ -34,7 +34,9 @@ class AuthNotifier extends StateNotifier<AuthState> {
     state = AuthState.loading();
     try {
       final response = await _authService.login(email, password);
+      //save token to local storage
       await _localStorageService.saveAuthData(response.data);
+      //update state, notify listeners
       state = AuthState.authenticated(response.data);
     } catch (e) {
       state = AuthState.error(e.toString());
